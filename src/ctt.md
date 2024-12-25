@@ -83,4 +83,8 @@
 4. Daemon thread tidak akan ditunggu jika memang program Java akan berhenti
 5. Namun jika kita menghentikan program Java menggunakan System.exit(), maka user thread pun akan otomatis terhenti
 
+# Race Condition
+
+1. Salah satu problem yang sering sekali terjadi dalam aplikasi concurrent dan parallel adalah race condition
+2. Race condition merupakan keadaan ketika sebuah data diubah secara berbarengan oleh beberapa thread yang menyebabkan hasil akhir yang tidak sesuai dengan yang kita inginkan
 
