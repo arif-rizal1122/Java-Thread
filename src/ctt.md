@@ -30,6 +30,57 @@
 3. Synchronous adalah ketika kode program kita berjalan secara sequential, dan semua tahapan ditunggu sampai prosesnya selesai baru akan dieksekusi ke tahapan selanjutnya
 4. Sedangkan, Asynchronous artinya ketika kode program kita berjalan dan kita tidak perlu menunggu eksekusi kode tersebut selesai, kita bisa lanjutkan ke tahapan kode program selanjutnya
  
-¥ 
+
+# Thread
+
+1. Di Java, implementasi Concurrency dan Parallel dapat menggunakan Thread
+2. Thread direpresentasikan oleh class bernama Thread di package java.lang
+
+¥ Thread Utama
+1. Secara default, saat sebuah aplikasi Java berjalan, minimal akan ada satu thread yang berjalan
+2. Dalam aplikasi Java biasa, biasanya kode program kita akan berjalan di dalam thread yang bernama main
+3. Bahkan di Unit Test pun, memiliki thread sendiri
+
+¥ Membuat Thread
+1. Thread merupakan proses ringan, membuat Thread bukan berarti kita melakukan pekerjaan
+2. Untuk membuat pekerjaan, kita perlu membuat object dari interface Runnable, selanjutnya object Runnable tersebut bisa kita berikan ke Thread untuk dijalankan
+3. Saat Thread berjalan, dia akan berjalan secara asynchronous, artinya dia akan berjalan sendiri, dan kode program kita akan berlanjut ke kode program selanjutnya
+4. Untuk menjalankan Thread, kita bisa memanggil function start() milik Thread
+
+¥ Thread Sleep
+1. Pada saat proses development, kada kita butuh melakukan simulasi proses yang berjalan dalam waktu tertentu
+2. Untuk melakukan hal ini, kita bisa memanfaatkan fitur Thread Sleep yang terdapat di Java
+3. Dengan menggunakan Thread Sleep, kita bisa membuat sebuah thread tertidur dan berhenti dalam waktu yang kita tentukan
+4. Untuk melakukan hal ini, kita bisa memanggil static method sleep() di class Thread, maka secara otomatis Thread saat itu dimana memanggil kode sleep() akan tertidur sesuai dengan waktu milisecond yang sudah kita masukkan dalam parameter
+5. Namun perlu diperhatikan, method sleep bisa menyebabkan error InterruptedException
+
+
+¥ Thread Join
+1. Kadang kita ingin menunggu sampai sebuah thread selesai tugasnya
+2. Untuk melakukan hal tersebut, kita bisa memanggil method join milik thread yang akan kita tunggu
+
+¥ Thread Interrupt
+1. Interrupt merupakan mengirim sinyal ke thread bahwa thread tersebut harus berhenti melakukan pekerjaannya saat ini
+2. Untuk melakukan interrupt, kita bisa menggunakan method interrupt() pada thread
+3. Saat kita memanggil method interrupt(), secara otomatis Thread.interrupted() akan bernilai true
+4. Perlu diingat, kode program kita pada Runnable harus melakukan pengecekan interrupted, jika tidak, sinyal interrupt tidak ada gunanya
+
+¥ Thread Name
+1. Secara default thread di Java memiliki nama, ini sangat cocok untuk proses debugging ketika terjadi masalah
+2. Thread name secara default akan menggunakan nama Thread-{counter}
+3. Namun kita juga bisa mengubahnya dengan menggunakan method setName(name), dan getName() untuk mendapatkan nama thread nya
+
+¥ Thread State
+1. Thread di Java memiliki state, state yaitu informasi state sebuah thread
+2. State digunakan hanya untuk mendapat informasi
+3. State akan berubah statusnya sesuai dengan apa yang terjadi di thread
+4. Untuk mendapatkan data state, kita bisa menggunakan method getState() dan akan mengembalikan enum State
+
+¥ Thread Daemon
+1. Secara default, saat kita membuat thread, thread tersebut disebut user thread
+2. Java (bukan JUnit) secara default akan selalu menunggu semua user thread selesai sebelum program berhenti
+3. Jika kita mengubah thread menjadi daemon thread, menggunakan setDaemon(true), maka secara otomatis thread tersebut menjadi daemon thread
+4. Daemon thread tidak akan ditunggu jika memang program Java akan berhenti
+5. Namun jika kita menghentikan program Java menggunakan System.exit(), maka user thread pun akan otomatis terhenti
 
 
