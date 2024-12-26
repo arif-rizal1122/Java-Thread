@@ -146,4 +146,19 @@
 2. Timer bisa di schedule untuk berjalan satu kali (delayed job), atau bisa berjalan berulang kali (repeated job)
 3. https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Timer.html 
 
+# High Level Concurrency Object
 
+¥ Concurrency Utilities
+1. Pada versi Java 5, Java merilis fitur yang bernama Concurrency Utilities, fitur ini berisikan dukungan high level API untuk membuat aplikasi multithreaded lebih mudah
+2. Concurrency Utilities memperkenalkan 3 packages baru di Java 5, yaitu
+- java.util.concurrent
+- java.util.concurrent.atomic, dan
+- java.util.concurrent.locks
+3. Semua package dan fitur tersebut nanti kita akan bahas satu persatu
+
+
+¥ Kenapa Butuh High Level API?
+1. Membuat dan melakukan management Thread secara manual di Java bukanlah hal bijak
+2. Mudah terjadi kesalahan, terutama seperti yang sudah kita jelaskan, masalah Race Condition dan Deadlock misalnya
+3. Selain itu, membuat aplikasi multithreaded menggunakan low level API (menggunakan Thread langsung) tidak terlalu produktif dan flexible
+4. Oleh karena itu, dalam pembuatan aplikasi sehari-hari, biasanya kita akan jarang sekali melakukan management thread secara manual, biasanya kita akan gunakan Concurrency Utilities
