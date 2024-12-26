@@ -140,4 +140,10 @@
 1. Kadang ada kasus dimana sebuah lock ditunggu oleh banyak thread, notify() hanya memberi sinyal kepada satu thread saja
 2. Jika kita ingin mengirim sinyal ke semua thread, kita bisa menggunakan method notifyAll()
 
+# Timer
+
+1. Timer merupakan class untuk memfasilitasi eksekusi job secara asynchronous di masa depan
+2. Timer bisa di schedule untuk berjalan satu kali (delayed job), atau bisa berjalan berulang kali (repeated job)
+3. https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Timer.html 
+
 
