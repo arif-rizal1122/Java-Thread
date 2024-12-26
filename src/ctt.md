@@ -88,3 +88,26 @@
 1. Salah satu problem yang sering sekali terjadi dalam aplikasi concurrent dan parallel adalah race condition
 2. Race condition merupakan keadaan ketika sebuah data diubah secara berbarengan oleh beberapa thread yang menyebabkan hasil akhir yang tidak sesuai dengan yang kita inginkan
 
+# Synchronization
+
+1. Masalah race condition sebelumnya yang terjadi di Java bisa diselesaikan dengan Synchronization
+2. Synchronization merupakan fitur dimana kita memaksa kode program hanya boleh diakses dan dieksekusi oleh satu thread saja
+3. Hal ini menyebabkan thread yang lain yang akan mengakses kode program tersebut harus menunggu thread yang lebih dahulu mengakses, sehingga proses Synchronization akan lebih lambat, namun proses Synchronization lebih aman karena tidak akan terjadi race condition
+
+¥ Synchronized Method
+1. Di Java, terdapat dua jenis synchronization, yaitu synchronized method dan synchronized statement
+2. Synchronized method method merupakan synchronization paling mudah, karena kita hanya perlu menambah kata kunci synchronized pada method yang ingin kita set sebagai synchronization
+3. Dengan begitu, secara otomatis method tersebut hanya bisa diakses oleh satu thread pada satu waktu
+
+¥ Intrinsic Lock
+1. Synchronization di Java sebenarnya bekerja menggunakan lock
+2. Ketika kita melakukan synchronized method, secara otomatis Java akan membuat intrinsic lock atau monitor lock
+3. Ketika synchronized method dipanggil oleh thread, thread akan melakukan mencoba mendapatkan intrinsic lock, setelah method selesai (sukses ataupun error), maka thread akan mengembalikan intrinsic lock
+4. Semua itu terjadi sejari secara otomatis di synchronized method
+
+¥ Synchronized Statement
+1. Saat kita menggunakan synchronized method, secara otomatis seluruh method akan ter synchronization
+2. Kadang, misal kita hanya ingin melakukan synchronized pada bagian kode tertentu saja
+3. Untuk melakukan hal tersebut, kita bisa menggunakan synchronized statement
+4. Namun ketika kita menggunakan synchronized statement, kita harus menentukan object intrinsic lock sendiri
+
