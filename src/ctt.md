@@ -111,3 +111,14 @@
 3. Untuk melakukan hal tersebut, kita bisa menggunakan synchronized statement
 4. Namun ketika kita menggunakan synchronized statement, kita harus menentukan object intrinsic lock sendiri
 
+
+# Deadlock
+
+1. Race condition sangat mudah diselesaikan dengan synchronization dan lock, namun masalah lain bisa mengintai jika kita salah melakukan synchronization, yaitu Deadlock
+2. Deadlock merupakan kondisi dimana beberapa thread saling menunggu satu sama lain karena biasanya terjadi ketika thread tersebut melakukan lock dan menunggu lock lain dari thread lain dan ternyata thread tersebut juga menunggu lock lain
+3. Karena saling menunggu, akhirnya terjadi deadlock, keadaan dimana semua thread tidak berjalan karena hanya menunggu lock
+
+¥ Cara Menangani Deadlock
+1. Sayangnya tidak ada cara menyelesaikan masalah deadlock secara otomatis di Java
+2. Masalah deadlock harus diselesaikan sendiri oleh programmer yang membuat kode program nya
+
