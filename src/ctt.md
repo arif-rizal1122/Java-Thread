@@ -122,3 +122,22 @@
 1. Sayangnya tidak ada cara menyelesaikan masalah deadlock secara otomatis di Java
 2. Masalah deadlock harus diselesaikan sendiri oleh programmer yang membuat kode program nya
 
+
+# Thread Communication
+
+1. Dalam multithreaded programming, kadang sudah biasa ketika sebuah thread perlu menunggu thread lain menyelesaikan tugas tertentu, baru thread tersebut melakukan tugasnya
+2. Sayangnya tidak ada cara otomatis komunikasi antar thread secara langsung
+3. Oleh karena itu, programmer harus melakukannya secara manual untuk komunikasi antar thread
+
+¥ Wait dan Notify
+1. Menggunakan loop untuk menunggu sangat tidak direkomendasikan, alasannya buang-buang resource CPU dan juga jika terjadi interrupt, loop akan terus berjalan tanpa henti
+2. Java sudah menyediakan solusi yang lebih baik dengan menambahkan method wait dan notify di java.lang.Object
+3. Artinya kita bisa membuat object apapun menjadi lock, dan gunakan wait() untuk menunggu, dan gunakan notify() untuk memberitahu bahwa data sudah tersedia
+4. notify() akan memberi tahu thread lain yang sedang melakukan wait() bahwa proses bisa dilanjutkan
+
+
+¥ Notify All
+1. Kadang ada kasus dimana sebuah lock ditunggu oleh banyak thread, notify() hanya memberi sinyal kepada satu thread saja
+2. Jika kita ingin mengirim sinyal ke semua thread, kita bisa menggunakan method notifyAll()
+
+
